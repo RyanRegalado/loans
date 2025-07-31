@@ -29,7 +29,6 @@ function LoanForm({ userID, onClose }) {
             gracePeriod: parseInt(formData.gracePeriod, 10)
         };
         
-        checkFormValidity();
 
         try {
             await fetch('http://localhost:5000/api/loans', {
@@ -44,13 +43,9 @@ function LoanForm({ userID, onClose }) {
 
     };
 
-    function checkFormValidity() {
-        Object.values(formData).every(value => value.trim() !== '');
-    }
-
     return (
         <form onSubmit={handleSubmit} className='loan-form'>
-            <input name='name' placeholder='Loan Name' onChange={handleChange} required/>
+            <input name='name' placeholder='Name (ex: Freshman Year)' onChange={handleChange} required/>
             <input name='amount' placeholder='Principle ($)' type='number' onChange={handleChange} required/>
             <input name='interestRate' placeholder='Interest Rate (ex: 0.07)' min='0' max='1' type='number' step='0.01' onChange={handleChange} required/>
             <input name='termMonths' placeholder='Term (Months)' type='number' onChange={handleChange} required/>

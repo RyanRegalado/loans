@@ -9,11 +9,17 @@ function Home({ userID })  {
     console.log('Home component rendered with userID:', userID);
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [refreshKey, setRefreshKey] = useState(0);
+
+    const handleLoanAdded = () => {
+        setRefreshKey(prevKey => prevKey + 1); // Trigger a re-fetch of loans
+        setModalIsOpen(false); // Close the modal after adding a loan
+    };
 
     return (
         <div>
             <button onClick={() => setModalIsOpen(true)} className='add-loan-button'>Add Loan</button>
-
+            <h1>User id: {userID} </h1>
             <Modal
                 isOpen={modalIsOpen}
                 onRequestClose={() => setModalIsOpen(false)}
@@ -36,14 +42,15 @@ function Home({ userID })  {
 
                 <LoanForm 
                     userID={userID}
-                    onClose={() => setModalIsOpen(false)}
+                    onClose={handleLoanAdded}
                     />
             </Modal>
 
-            <LoanList userID={userID} />
+            <LoanList key={refreshKey} userID={userID} />
         </div>
     )
 }
+
 
 export default Home
 

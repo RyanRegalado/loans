@@ -30,4 +30,14 @@ const getLoans = async (userID) => {
   return data;
 };
 
-module.exports = { addLoan, getLoans };
+const deleter = async (userID, loanID) => {
+  const { data, error } = await supabase
+  .from('loans_table')
+  .delete()
+  .match({'userID' : userID, 'id' : loanID});
+  if (error) throw error;
+
+  return data;
+};
+
+module.exports = { addLoan, getLoans, deleter };

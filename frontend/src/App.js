@@ -7,6 +7,7 @@ function App() {
   console.log('App component rendered')
   
   const [userID, setUserID] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getOrCreateAnonUser = async () => {
@@ -21,14 +22,22 @@ function App() {
         } else {
           console.log('Anonymous user created:', data.user.id);
           setUserID(data.user.id);
+          setLoading(false);
         }
       } else {
         setUserID(session.user.id);
+        setLoading(false)
       }
     };
 
     getOrCreateAnonUser();
   }, []);
+
+  if (loading) {
+    console.log('Loading user session...');
+  }
+
+  if (loading) return <div>Loading...</div>;
   
   return (
     <BrowserRouter>

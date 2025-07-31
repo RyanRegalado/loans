@@ -1,5 +1,5 @@
 // controllers/loanController.js
-const { addLoan, getLoans } = require('../services/loanService');
+const { addLoan, getLoans, deleter } = require('../services/loanService');
 
 createLoan = async (req, res) => {
   try {
@@ -14,11 +14,22 @@ fetchLoans = async (req, res) => {
   try {
     const userID = req.query.userID;
     const loans = await getLoans(userID);
-    console.log('Fetched loans for userID:', userID, 'Loans:', loans);
     res.status(200).json(loans);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
-module.exports = { createLoan, fetchLoans };
+deleteLoan = async (req, res) => {
+  try {
+    const userID = req.query.userID;
+    const loanID = req.query.id; // Ex ?userID=123&id=456
+    const deleteResult = await deleter(userID, loanID);
+    res.status(200).json({ message: 'Loan deleted successfully', result: deleteResult });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+    console.error('Error deleting loan:', error);
+  }
+}
+
+module.exports = { createLoan, fetchLoans, deleteLoan };
