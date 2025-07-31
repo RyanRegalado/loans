@@ -12,7 +12,9 @@ createLoan = async (req, res) => {
 
 fetchLoans = async (req, res) => {
   try {
-    const loans = await getLoans();
+    const userID = req.query.userID;
+    const loans = await getLoans(userID);
+    console.log('Fetched loans for userID:', userID, 'Loans:', loans);
     res.status(200).json(loans);
   } catch (error) {
     res.status(500).json({ message: error.message });

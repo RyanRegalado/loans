@@ -10,6 +10,8 @@ router.post('/', createLoan);
 // GET /api/loans
 router.get('/', fetchLoans);
 
-router.post('/analyze', analyzeLoans)
+// POST /api/loans/analyze
+
+// router.post('/analyze', analyzeLoans)
 
 module.exports = router;
