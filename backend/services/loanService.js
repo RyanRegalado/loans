@@ -7,11 +7,11 @@ const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const addLoan = async (loanData) => {
-  const { userID, name, amount, interestRate, termMonths, gracePeriod } = loanData;
+  const { userID, name, yearsTillGraduation, amount, interestRate, termYears, gracePeriod, subsidized } = loanData;
 
   const { data, error } = await supabase
     .from('loans_table')
-    .insert([{ userID, name, amount, interestRate, termMonths, gracePeriod }]);
+    .insert([{ userID, name, yearsTillGraduation, amount, interestRate, termYears, gracePeriod, subsidized }]);
 
   if (error) throw error;
 

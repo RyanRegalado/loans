@@ -2,6 +2,7 @@ import { useEffect, useState }  from "react";
 import { supabase } from './supabaseClient';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
+import Analysis from './pages/Analysis';
 
 function App() {
   console.log('App component rendered')
@@ -43,6 +44,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path = "/" element={<Home userID={userID} />} /> 
+        <Route path="/Analysis" element={<Analysis userID={userID} />} />
       </Routes>
     </BrowserRouter>
   );

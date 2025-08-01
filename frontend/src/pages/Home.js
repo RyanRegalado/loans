@@ -2,11 +2,18 @@ import { useState } from "react";
 import Modal from 'react-modal';
 import LoanForm from "../components/loanForm";
 import LoanList from "../components/loanList";
+import { useNavigate } from "react-router-dom";
 
 Modal.setAppElement('#root');
 
 function Home({ userID })  {
     console.log('Home component rendered with userID:', userID);
+
+    const navigate = useNavigate();
+
+    const handlePageSwitch = () => {
+        navigate('../Analysis');
+    }
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [refreshKey, setRefreshKey] = useState(0);
@@ -47,6 +54,8 @@ function Home({ userID })  {
             </Modal>
 
             <LoanList key={refreshKey} userID={userID} />
+            <button onClick={handlePageSwitch} className = "to-analysis-page-button">Analyze Loans</button>
+
         </div>
     )
 }

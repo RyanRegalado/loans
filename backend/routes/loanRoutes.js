@@ -2,7 +2,6 @@
 const express = require('express');
 const router = express.Router();
 const { createLoan, fetchLoans, deleteLoan } = require('../controllers/loanController');
-const { analyzeLoans } = require('../controllers/analysisController');
 
 // POST /api/loans
 router.post('/', createLoan);
