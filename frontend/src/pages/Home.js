@@ -54,7 +54,7 @@ function Home({ userID })  {
             </Modal>
 
             <LoanList key={refreshKey} userID={userID} />
-            <button onClick={handlePageSwitch} className = "to-analysis-page-button">Analyze Loans</button>
+            <button onClick={handlePageSwitch} className = "to-analysis-page-button">Analyze</button>
 
         </div>
     )

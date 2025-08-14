@@ -7,7 +7,7 @@ function Analysis( {userID} ) {
     const navigate = useNavigate();
     const [loanList, setLoanList] = useState([]);
     const [loadingLoans, setLoadingLoans] = useState(true);
-    const [salaryData, setSalaryData] = useState(null)
+    const [salaryData, setSalaryData] = useState({salary: "", state: ""})
     
     const handleExit = () => {
         navigate('/');
@@ -30,8 +30,8 @@ function Analysis( {userID} ) {
         
     }, [userID]);
 
-    const handleSalarySubmit = (salaryData) => {
-        setSalaryData(salaryData)
+    const handleSalarySubmit = (sal) => {
+        setSalaryData(sal)
     };
 
 
