@@ -1,0 +1,84 @@
+{
+  "federalTax": {
+    "Single": [
+      {"rate": 10.00, "min": 0, "max": 11925},
+      {"rate": 12.00, "min": 11926, "max": 48475},
+      {"rate": 22.00, "min": 48476, "max": 103350},
+      {"rate": 24.00, "min": 103351, "max": 197300},
+      {"rate": 32.00, "min": 197301, "max": 250525},
+      {"rate": 35.00, "min": 250526, "max": 626350},
+      {"rate": 37.00, "min": 626351, "max": null}
+    ],
+    "Married Filing Jointly": [
+      {"rate": 10.00, "min": 0, "max": 23850},
+      {"rate": 12.00, "min": 23851, "max": 96950},
+      {"rate": 22.00, "min": 96951, "max": 206700},
+      {"rate": 24.00, "min": 206701, "max": 394600},
+      {"rate": 32.00, "min": 394601, "max": 501050},
+      {"rate": 35.00, "min": 501051, "max": 751600},
+      {"rate": 37.00, "min": 751601, "max": null}
+    ],
+    "Married Filing Separately": [
+      {"rate": 10.00, "min": 0, "max": 11925},
+      {"rate": 12.00, "min": 11926, "max": 48475},
+      {"rate": 22.00, "min": 48476, "max": 103350},
+      {"rate": 24.00, "min": 103351, "max": 197300},
+      {"rate": 32.00, "min": 197301, "max": 250525},
+      {"rate": 35.00, "min": 250526, "max": 375800},
+      {"rate": 37.00, "min": 375801, "max": null}
+    ],
+    "Head of Household": [
+      {"rate": 10.00, "min": 0, "max": 17000},
+      {"rate": 12.00, "min": 17001, "max": 64850},
+      {"rate": 22.00, "min": 64851, "max": 103350},
+      {"rate": 24.00, "min": 103351, "max": 197300},
+      {"rate": 32.00, "min": 197301, "max": 250500},
+      {"rate": 35.00, "min": 250501, "max": 626350},
+      {"rate": 37.00, "min": 626351, "max": null}
+    ]
+  },
+  "standardDeduction": {
+    "Single": 15000,
+    "Married Filing Jointly": 30000,
+    "Married Filing Separately": 15000,
+    "Head of Household": 22500
+  },
+  "capitalGains": {
+    "Single": [
+      {"rate": 0.00, "min": 0, "max": 48350},
+      {"rate": 15.00, "min": 48351, "max": 533400},
+      {"rate": 20.00, "min": 533401, "max": null}
+    ],
+    "Married Filing Jointly": [
+      {"rate": 0.00, "min": 0, "max": 96700},
+      {"rate": 15.00, "min": 96701, "max": 600050},
+      {"rate": 20.00, "min": 600051, "max": null}
+    ],
+    "Married Filing Separately": [
+      {"rate": 0.00, "min": 0, "max": 48350},
+      {"rate": 15.00, "min": 48351, "max": 300025},
+      {"rate": 20.00, "min": 300026, "max": null}
+    ],
+    "Head of Household": [
+      {"rate": 0.00, "min": 0, "max": 64750},
+      {"rate": 15.00, "min": 64751, "max": 566700},
+      {"rate": 20.00, "min": 566701, "max": null}
+    ]
+  },
+  "alternativeMinimumTax": {
+    "exemption": {
+      "Single": 88100,
+      "Married Filing Jointly": 137000,
+      "Married Filing Separately": 68500
+    },
+    "rates": [
+      {"rate": 26.00, "min": 0, "max": 239100},
+      {"rate": 28.00, "min": 239101, "max": null}
+    ],
+    "phaseoutThreshold": {
+      "Single": 626350,
+      "Married Filing Jointly": 1252700,
+      "Married Filing Separately": 626350
+    }
+  }
+}

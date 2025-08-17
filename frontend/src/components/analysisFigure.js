@@ -28,7 +28,7 @@ function AnalysisFigure( {loanList, salary} ) {
             <h2 className = 'salaryHeader'>Salary: {salary['salary']}</h2>
             <h2 className = 'stateHeader'> State: {salary['state']} </h2>
             {loanList.map((loan, index) => (
-                <LoanCard key={index} loan={loan} index={index}  />
+                <LoanCard key={index} loan={loan} index={index} salary = {salary} /> 
             ))}
         </div>
     )

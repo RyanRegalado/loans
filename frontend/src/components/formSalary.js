@@ -21,9 +21,9 @@ function FormSalary( {onSubmit} ) {
 
     return (
         <form className="salaryForm" onSubmit={handleSubmit}>
-            <label> Expected Salary After Graduation: <input className = 'salary' name='salary' type='number' min = '0' placeholder='Ex. 60000'  onChange={handleChange}/> </label>
+            <label> Expected Salary After Graduation: <input className = 'salary' name='salary' type='number' min = '0' placeholder='Ex. 60000'  onChange={handleChange} required/> </label>
             <label>Choose your State: 
-                <select className = 'stateDropdown' onChange={handleChange} name="state">
+                <select className = 'stateDropdown' onChange={handleChange} name="state" required>
                     <option value="" disabled selected>Select your state</option>
                     <option value="Alabama">AL</option>
                     <option value="Alaska">AK</option>
