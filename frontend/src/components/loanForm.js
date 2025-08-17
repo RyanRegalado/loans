@@ -48,19 +48,121 @@ function LoanForm({ userID, onClose }) {
     };
 
     return (
-        <form onSubmit={handleSubmit} className='loan-form'>
-            <input name='name' placeholder='Name (ex: Freshman Year)' onChange={handleChange} required/>
-            <input name='yearsTillGraduation' placeholder='Years Until Graduation' type='number' onChange={handleChange} required/>
-            <input name='amount' placeholder='Principle ($)' type='number' onChange={handleChange} required/>
-            <input name='interestRate' placeholder='Interest Rate (ex: 0.07)' min='0' max='1' type='number' step='0.01' onChange={handleChange} required/>
-            <input name='termYears' placeholder='Term (Years)' type='number' onChange={handleChange} required/>
-            <input name='gracePeriod' placeholder='Grace Period (Months)' type='number' onChange={handleChange} required/>
-            <label className= "checkbox-label"> Subsidized <input name='subsidized' type='checkbox' checked={formData.subsidized} onChange={handleChange} /> </label>
-            <button type='submit'> Done </button>
-            <button type='button' onClick={onClose}> Cancel </button>
-        </form>
+        <div className="loan-form-container">
+            <div className="form-header">
+                <h2>Add New Loan</h2>
+                <p>Enter the details of your student loan</p>
+            </div>
+            
+            <form onSubmit={handleSubmit} className='loan-form'>
+                <div className="form-group">
+                    <label htmlFor="name">Loan Name</label>
+                    <input 
+                        id="name"
+                        name='name' 
+                        placeholder='e.g., Freshman Year, Federal Direct Loan' 
+                        value={formData.name}
+                        onChange={handleChange} 
+                        required
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="amount">Principal Amount ($)</label>
+                    <input 
+                        id="amount"
+                        name='amount' 
+                        placeholder='e.g., 5000' 
+                        type='number' 
+                        value={formData.amount}
+                        onChange={handleChange} 
+                        required
+                    />
+                </div>
+
+                <div className="form-row">
+                    <div className="form-group">
+                        <label htmlFor="interestRate">Interest Rate (%)</label>
+                        <input 
+                            id="interestRate"
+                            name='interestRate' 
+                            placeholder='e.g., 5.5' 
+                            type='number' 
+                            step='0.01' 
+                            min='0' 
+                            max='100'
+                            value={formData.interestRate}
+                            onChange={handleChange} 
+                            required
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="termYears">Term (Years)</label>
+                        <input 
+                            id="termYears"
+                            name='termYears' 
+                            placeholder='e.g., 10' 
+                            type='number' 
+                            value={formData.termYears}
+                            onChange={handleChange} 
+                            required
+                        />
+                    </div>
+                </div>
+
+                <div className="form-row">
+                    <div className="form-group">
+                        <label htmlFor="yearsTillGraduation">Years Until Graduation</label>
+                        <input 
+                            id="yearsTillGraduation"
+                            name='yearsTillGraduation' 
+                            placeholder='e.g., 2' 
+                            type='number' 
+                            value={formData.yearsTillGraduation}
+                            onChange={handleChange} 
+                            required
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="gracePeriod">Grace Period (Months)</label>
+                        <input 
+                            id="gracePeriod"
+                            name='gracePeriod' 
+                            placeholder='e.g., 6' 
+                            type='number' 
+                            value={formData.gracePeriod}
+                            onChange={handleChange} 
+                            required
+                        />
+                    </div>
+                </div>
+
+                <div className="form-group checkbox-group">
+                    <label className="checkbox-label">
+                        <input 
+                            name='subsidized' 
+                            type='checkbox' 
+                            checked={formData.subsidized} 
+                            onChange={handleChange}
+                        />
+                        <span className="checkmark"></span>
+                        This is a subsidized loan
+                    </label>
+                </div>
+
+                <div className="form-actions">
+                    <button type='button' onClick={onClose} className="cancel-button">
+                        Cancel
+                    </button>
+                    <button type='submit' className="submit-button">
+                        Add Loan
+                    </button>
+                </div>
+            </form>
+        </div>
     )
 }
-
 
 export default LoanForm;

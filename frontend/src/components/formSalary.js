@@ -20,67 +20,98 @@ function FormSalary( {onSubmit} ) {
     }
 
     return (
-        <form className="salaryForm" onSubmit={handleSubmit}>
-            <label> Expected Salary After Graduation: <input className = 'salary' name='salary' type='number' min = '0' placeholder='Ex. 60000'  onChange={handleChange} required/> </label>
-            <label>Choose your State: 
-                <select className = 'stateDropdown' onChange={handleChange} name="state" required>
-                    <option value="" disabled selected>Select your state</option>
-                    <option value="Alabama">AL</option>
-                    <option value="Alaska">AK</option>
-                    <option value="Arizona">AZ</option>
-                    <option value="Arkansas">AR</option>
-                    <option value="California">CA</option>
-                    <option value="Colorado">CO</option>
-                    <option value="Connecticut">CT</option>
-                    <option value="Delaware">DE</option>
-                    <option value="Florida">FL</option>
-                    <option value="Georgia">GA</option>
-                    <option value="Hawaii">HI</option>
-                    <option value="Idaho">ID</option>
-                    <option value="Illinois">IL</option>
-                    <option value="Indiana">IN</option>
-                    <option value="Iowa">IA</option>
-                    <option value="Kansas">KS</option>
-                    <option value="Kentucky">KY</option>
-                    <option value="Louisiana">LA</option>
-                    <option value="Maine">ME</option>
-                    <option value="Maryland">MD</option>
-                    <option value="Massachusetts">MA</option>
-                    <option value="Michigan">MI</option>
-                    <option value="Minnesota">MN</option>
-                    <option value="Mississippi">MS</option>
-                    <option value="Missouri">MO</option>
-                    <option value="Montana">MT</option>
-                    <option value="Nebraska">NE</option>
-                    <option value="Nevada">NV</option>
-                    <option value="New Hampshire">NH</option>
-                    <option value="New Jersey">NJ</option>
-                    <option value="New Mexico">NM</option>
-                    <option value="New York">NY</option>
-                    <option value="North Carolina">NC</option>
-                    <option value="North Dakota">ND</option>
-                    <option value="Ohio">OH</option>
-                    <option value="Oklahoma">OK</option>
-                    <option value="Oregon">OR</option>
-                    <option value="Pennsylvania">PA</option>
-                    <option value="Rhode Island">RI</option>
-                    <option value="South Carolina">SC</option>
-                    <option value="South Dakota">SD</option>
-                    <option value="Tennessee">TN</option>
-                    <option value="Texas">TX</option>
-                    <option value="Utah">UT</option>
-                    <option value="Vermont">VT</option>
-                    <option value="Virginia">VA</option>
-                    <option value="Washington">WA</option>
-                    <option value="West Virginia">WV</option>
-                    <option value="Wisconsin">WI</option>
-                    <option value="Wyoming">WY</option>    
-                </select> 
-            </label>
+        <div className="salary-form-wrapper">
+            <div className="salary-form-header">
+                <h2>Income Information</h2>
+                <p>Enter your expected salary and state to calculate accurate payment-to-income ratios</p>
+            </div>
             
-            <button type='submit' className="submit-salary-button">Submit</button>
-            
-        </form>
+            <form className="salaryForm" onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label htmlFor="salary">Expected Annual Salary ($)</label>
+                    <input 
+                        id="salary"
+                        className="salary-input" 
+                        name='salary' 
+                        type='number' 
+                        min="0" 
+                        placeholder='e.g., 65000'  
+                        value={formData.salary}
+                        onChange={handleChange} 
+                        required
+                    />
+                </div>
+                
+                <div className="form-group">
+                    <label htmlFor="state">State of Residence</label>
+                    <select 
+                        id="state"
+                        className="state-dropdown" 
+                        onChange={handleChange} 
+                        name="state" 
+                        value={formData.state}
+                        required
+                    >
+                        <option value="" disabled>Select your state</option>
+                        <option value="Alabama">Alabama</option>
+                        <option value="Alaska">Alaska</option>
+                        <option value="Arizona">Arizona</option>
+                        <option value="Arkansas">Arkansas</option>
+                        <option value="California">California</option>
+                        <option value="Colorado">Colorado</option>
+                        <option value="Connecticut">Connecticut</option>
+                        <option value="Delaware">Delaware</option>
+                        <option value="Florida">Florida</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Hawaii">Hawaii</option>
+                        <option value="Idaho">Idaho</option>
+                        <option value="Illinois">Illinois</option>
+                        <option value="Indiana">Indiana</option>
+                        <option value="Iowa">Iowa</option>
+                        <option value="Kansas">Kansas</option>
+                        <option value="Kentucky">Kentucky</option>
+                        <option value="Louisiana">Louisiana</option>
+                        <option value="Maine">Maine</option>
+                        <option value="Maryland">Maryland</option>
+                        <option value="Massachusetts">Massachusetts</option>
+                        <option value="Michigan">Michigan</option>
+                        <option value="Minnesota">Minnesota</option>
+                        <option value="Mississippi">Mississippi</option>
+                        <option value="Missouri">Missouri</option>
+                        <option value="Montana">Montana</option>
+                        <option value="Nebraska">Nebraska</option>
+                        <option value="Nevada">Nevada</option>
+                        <option value="New Hampshire">New Hampshire</option>
+                        <option value="New Jersey">New Jersey</option>
+                        <option value="New Mexico">New Mexico</option>
+                        <option value="New York">New York</option>
+                        <option value="North Carolina">North Carolina</option>
+                        <option value="North Dakota">North Dakota</option>
+                        <option value="Ohio">Ohio</option>
+                        <option value="Oklahoma">Oklahoma</option>
+                        <option value="Oregon">Oregon</option>
+                        <option value="Pennsylvania">Pennsylvania</option>
+                        <option value="Rhode Island">Rhode Island</option>
+                        <option value="South Carolina">South Carolina</option>
+                        <option value="South Dakota">South Dakota</option>
+                        <option value="Tennessee">Tennessee</option>
+                        <option value="Texas">Texas</option>
+                        <option value="Utah">Utah</option>
+                        <option value="Vermont">Vermont</option>
+                        <option value="Virginia">Virginia</option>
+                        <option value="Washington">Washington</option>
+                        <option value="West Virginia">West Virginia</option>
+                        <option value="Wisconsin">Wisconsin</option>
+                        <option value="Wyoming">Wyoming</option>    
+                    </select> 
+                </div>
+                
+                <button type='submit' className="submit-salary-button">
+                    <span className="button-icon">💼</span>
+                    <span>Update Analysis</span>
+                </button>
+            </form>
+        </div>
     )
 }
 
